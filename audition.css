@@ -1,0 +1,103 @@
+body {
+  background-color: #f9f5ea;
+}
+
+.shell {
+  max-width: 500px;
+  margin: 0 0 0 100px;
+  padding: 20px;
+  position: relative;
+}
+
+h1 {
+  font-family: "Chaparral Pro", Garamond, Georgia, serif;
+  font-weight: 350;
+  margin-top: 100px;
+}
+
+.twitter-tweet {
+  position: absolute;
+  width: 400px;
+}
+
+.twitter-tweet#twitter-widget-0 { top: 163px; left: 583px; }
+.twitter-tweet#twitter-widget-1 { top: 337px; left: 774px; }
+.twitter-tweet#twitter-widget-2 { top: 620px; left: 360px; }
+.twitter-tweet#twitter-widget-3 { top: 563px; left: 671px; }
+
+p#output {
+  font-family: "Chaparral Pro", Garamond, Georgia, serif;
+  font-size: 18px;
+  line-height: 2.2;
+  margin: 30px 0 50px;
+}
+
+p .audition {
+  position: relative;
+}
+
+p .audition .text {
+  display: inline;
+  color: #888;
+}
+
+p .audition ul {
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 1000px;
+  position: absolute;
+  left: 0px;
+  top: -18px;
+  /*background-color: #f9f5ea;*/
+}
+
+p .audition ul li {
+  height: 11px;
+  display: inline-block;
+  font-size: 11px;
+  color: #aaa;
+}
+
+p .audition ul li:last-of-type:after { content: ""; }
+p .audition ul li:after { content: "•"; margin: 0 4px; }
+p .audition ul li.selected { display: none; }
+
+label {
+  text-transform: uppercase;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #888;
+  display: block;
+  margin-bottom: 7px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 150px;
+  border: none;
+  padding: 15px;
+  font-size: 13px;
+  background-color: rgba(255,255,255,0.7);
+}
+
+textarea:focus {
+  outline:0;
+  outline:none;
+  -moz-appearance:none;
+  background-color: rgba(255,255,255,1);
+  -webkit-box-shadow: inset 0px 3px 4px rgba(0, 0, 0, 0.05);
+}
+
+@media screen and (max-width: 1280px) {
+  .shell {
+    margin: 0 auto;
+    padding: 10px;
+  }
+  .twitter-tweet {
+    position: static;
+    width: 100%;
+    margin: 0 auto 20px auto !important;
+  }
+}

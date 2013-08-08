@@ -7,7 +7,7 @@ Show and switch between different phrases in your writing. [Here's a live demo.]
 
 This works by looking for strings formatted like so:
 
-'This is a sentence that contains {fragment a/fragment b/fragment c}.'
+`This is a sentence that contains {fragment a/fragment b/fragment c}.`
 
 ![The alternate fragments are displayed above the selected one.](screenshot.png)
 

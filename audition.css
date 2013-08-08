@@ -4,7 +4,7 @@ body {
 
 .shell {
   max-width: 500px;
-  margin: 0 0 0 100px;
+  margin: 0 auto;
   padding: 20px;
   position: relative;
 }
@@ -14,16 +14,6 @@ h1 {
   font-weight: 350;
   margin-top: 100px;
 }
-
-.twitter-tweet {
-  position: absolute;
-  width: 400px;
-}
-
-.twitter-tweet#twitter-widget-0 { top: 163px; left: 583px; }
-.twitter-tweet#twitter-widget-1 { top: 337px; left: 774px; }
-.twitter-tweet#twitter-widget-2 { top: 620px; left: 360px; }
-.twitter-tweet#twitter-widget-3 { top: 563px; left: 671px; }
 
 p#output {
   font-family: "Chaparral Pro", Garamond, Georgia, serif;
@@ -49,7 +39,6 @@ p .audition ul {
   position: absolute;
   left: 0px;
   top: -18px;
-  /*background-color: #f9f5ea;*/
 }
 
 p .audition ul li {
@@ -92,12 +81,6 @@ textarea:focus {
 
 @media screen and (max-width: 1280px) {
   .shell {
-    margin: 0 auto;
     padding: 10px;
-  }
-  .twitter-tweet {
-    position: static;
-    width: 100%;
-    margin: 0 auto 20px auto !important;
   }
 }

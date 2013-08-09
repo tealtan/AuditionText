@@ -6,9 +6,13 @@ jQuery.fn.nextOrFirst = function(selector){
   return (next.length) ? next : this.prevAll(selector).last();
 }
 
-function renderText()
+function renderAuditionText(textarea,delimiter)
 {
-  var text = $('textarea#input').val();
+  // Set default values for input textarea
+  textarea = typeof textarea !== 'undefined' ? textarea : 'textarea#input';
+  delimiter = typeof delimiter !== 'undefined' ? delimiter : '/';
+  
+  var text = $(textarea).val();
   audition_array_input = text.match(/\{.*?\}/g);
   audition_array_output = audition_array_input;
 
@@ -25,7 +29,7 @@ function renderText()
       a = a.substring(1, a.length - 1);
 
       // Split the different options by the / character.
-      var audition_options = a.split("/");
+      var audition_options = a.split(delimiter);
 
       // Convert this into an unordered list, and making the first option selected by default.
       for (j=0; j<audition_options.length; j++)
@@ -74,12 +78,12 @@ function addMouseEvents()
 }
 
 $(document).ready(function () {
-  renderText();
+  renderAuditionText();
   updateAudition();
   addMouseEvents();
 
   $('#input').keyup(function () {
-    renderText();
+    renderAuditionText();
     updateAudition();
     addMouseEvents();
   })

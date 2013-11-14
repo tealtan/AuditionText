@@ -6,6 +6,11 @@ jQuery.fn.nextOrFirst = function(selector){
   return (next.length) ? next : this.prevAll(selector).last();
 }
 
+function sanitizeInput(text){
+  // remove HTML tags from input using a dummy div with DOM's built-in HTML removal
+  return $('<div/>').html(text).text();
+}
+
 function renderAuditionText(textarea,delimiter)
 {
   // Set default values for input textarea
@@ -13,6 +18,7 @@ function renderAuditionText(textarea,delimiter)
   delimiter = typeof delimiter !== 'undefined' ? delimiter : '/';
   
   var text = $(textarea).val();
+
   audition_array_input = text.match(/\{.*?\}/g);
   audition_array_output = audition_array_input;
 
@@ -27,6 +33,9 @@ function renderAuditionText(textarea,delimiter)
       // Remove the { and } from the sentences.
       var a = audition_array_input[i].toString();
       a = a.substring(1, a.length - 1);
+
+      // remove any HTML to avoid interpreting '/' in tags as breaks
+      a = sanitizeInput(a);
 
       // Split the different options by the / character.
       var audition_options = a.split(delimiter);

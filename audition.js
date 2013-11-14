@@ -17,7 +17,7 @@ function renderAuditionText(textarea,delimiter)
   textarea = typeof textarea !== 'undefined' ? textarea : 'textarea#input';
   delimiter = typeof delimiter !== 'undefined' ? delimiter : '/';
   
-  var text = sanitizeInput($(textarea).val());
+  var text = $(textarea).val();
 
   audition_array_input = text.match(/\{.*?\}/g);
   audition_array_output = audition_array_input;
@@ -33,6 +33,9 @@ function renderAuditionText(textarea,delimiter)
       // Remove the { and } from the sentences.
       var a = audition_array_input[i].toString();
       a = a.substring(1, a.length - 1);
+
+      // remove any HTML to avoid interpreting '/' in tags as breaks
+      a = sanitizeInput(a);
 
       // Split the different options by the / character.
       var audition_options = a.split(delimiter);

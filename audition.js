@@ -6,13 +6,19 @@ jQuery.fn.nextOrFirst = function(selector){
   return (next.length) ? next : this.prevAll(selector).last();
 }
 
+function sanitizeInput(text){
+  // remove HTML tags from input using a dummy div with DOM's built-in HTML removal
+  return $('<div/>').html(text).text();
+}
+
 function renderAuditionText(textarea,delimiter)
 {
   // Set default values for input textarea
   textarea = typeof textarea !== 'undefined' ? textarea : 'textarea#input';
   delimiter = typeof delimiter !== 'undefined' ? delimiter : '/';
   
-  var text = $(textarea).val();
+  var text = sanitizeInput($(textarea).val());
+
   audition_array_input = text.match(/\{.*?\}/g);
   audition_array_output = audition_array_input;
 
